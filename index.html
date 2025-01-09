@@ -21,32 +21,52 @@
         return result
     }
     function playRound(HumanChoice, ComputerChoice) {
-        if (HumanChoice === ComputerChoice) {
-            console.log("It's a tie!");
+        if (HumanChoice == ComputerChoice) {
+            alert("It's a tie!");
         } else if (
-            (HumanChoice === "rock" && ComputerChoice === "scissors") ||
+            (HumanChoice === "rock" && ComputerChoice === "scissor") ||
             (HumanChoice === "paper" && ComputerChoice === "rock") ||
-            (HumanChoice === "scissors" && ComputerChoice === "paper")
+            (HumanChoice === "scissor" && ComputerChoice === "paper")
 
         ) {
-            console.log("You win!!!");
+            alert("You win!!!");
             humanScore += 1;
         } else if (
             (HumanChoice === "rock" && ComputerChoice === "paper") ||
-            (HumanChoice === "paper" && ComputerChoice === "scissors") ||
-            (HumanChoice === "scissors" && ComputerChoice === "rock")
+            (HumanChoice === "paper" && ComputerChoice === "scissor") ||
+            (HumanChoice === "scissor" && ComputerChoice === "rock")
         ) {
-            console.log("You lose!!!");
+            alert("You lose!!!");
             computerScore++;
         } else {
-            console.log("Invalid choice. Please choose rock, paper, or scissors.");
+            alert("Invalid choice. Please choose rock, paper, or scissor.");
         }
     }
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+   
 
-    playRound(humanSelection, computerSelection);
+    function playGame() {
+        for (let i = 0; i < 5; i++) {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+        let flag = false
+        if (computerScore > humanScore) {
+            flag = true
+        }
+        else {
+            flag = false
+        }
+        console.log(`your score is ${humanScore} and computer Score is ${computerScore}`)
+        if(flag){
+            alert("you loose this game!!")
+        }
+        else{
+            alert("you win this game!! ")
+        }
+    }
+    playGame()
 </script>
 
 <head>
