@@ -1,60 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-    let humanScore = 0;
-    let computerScore = 0;
-    function getComputerChoice() {
-        let a = Math.random()
-        if (a < 0.33) {
-            return "rock";
-        }
-        else if (a > 0.33 && a < 0.66) {
-            return "paper"
-        }
-        else {
-            return "scissor";
-        }
-    }
-    const result=document.createElement("div")
 
-    function getHumanChoice() {
-        let a = prompt("enter rock,paper or scissor")
-        let res = a.toLowerCase()
-        return res
-    }
-    function playRound(HumanChoice, ComputerChoice) {
-        if (HumanChoice == ComputerChoice) {
-
-            result.textContent="It's a tie!"
-        } else if (
-            (HumanChoice === "rock" && ComputerChoice === "scissor") ||
-            (HumanChoice === "paper" && ComputerChoice === "rock") ||
-            (HumanChoice === "scissor" && ComputerChoice === "paper")
-
-        ) {
-            result.textContent="You win!!!"
-
-           
-            humanScore += 1;
-        } else if (
-            (HumanChoice === "rock" && ComputerChoice === "paper") ||
-            (HumanChoice === "paper" && ComputerChoice === "scissor") ||
-            (HumanChoice === "scissor" && ComputerChoice === "rock")
-        ) {
-           result.textContent="you loose!!!"
-            computerScore++;
-        } else {
-            result.textContent="Invalid choice. Please choose rock, paper, or scissor."
-        }
-    }
-const btn1 = document.createElement("button")
-const btn2 = document.createElement("button")
-const btn3 = document.createElement("button")
-
-
-</script>
 
 <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -62,7 +12,13 @@ const btn3 = document.createElement("button")
 
 <body>
 
-
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissor">Scissors</button>
+    <div class="result" id="result"></div>
+    <div class="score" id="score"></div>
+    
+    
 </body>
 
 </html>
