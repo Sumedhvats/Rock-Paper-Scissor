@@ -15,58 +15,43 @@
             return "scissor";
         }
     }
+    const result=document.createElement("div")
+
     function getHumanChoice() {
         let a = prompt("enter rock,paper or scissor")
-        let result = a.toLowerCase()
-        return result
+        let res = a.toLowerCase()
+        return res
     }
     function playRound(HumanChoice, ComputerChoice) {
         if (HumanChoice == ComputerChoice) {
-            alert("It's a tie!");
+
+            result.textContent="It's a tie!"
         } else if (
             (HumanChoice === "rock" && ComputerChoice === "scissor") ||
             (HumanChoice === "paper" && ComputerChoice === "rock") ||
             (HumanChoice === "scissor" && ComputerChoice === "paper")
 
         ) {
-            alert("You win!!!");
+            result.textContent="You win!!!"
+
+           
             humanScore += 1;
         } else if (
             (HumanChoice === "rock" && ComputerChoice === "paper") ||
             (HumanChoice === "paper" && ComputerChoice === "scissor") ||
             (HumanChoice === "scissor" && ComputerChoice === "rock")
         ) {
-            alert("You lose!!!");
+           result.textContent="you loose!!!"
             computerScore++;
         } else {
-            alert("Invalid choice. Please choose rock, paper, or scissor.");
+            result.textContent="Invalid choice. Please choose rock, paper, or scissor."
         }
     }
+const btn1 = document.createElement("button")
+const btn2 = document.createElement("button")
+const btn3 = document.createElement("button")
 
-   
 
-    function playGame() {
-        for (let i = 0; i < 5; i++) {
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-        }
-        let flag = false
-        if (computerScore > humanScore) {
-            flag = true
-        }
-        else {
-            flag = false
-        }
-        console.log(`your score is ${humanScore} and computer Score is ${computerScore}`)
-        if(flag){
-            alert("you loose this game!!")
-        }
-        else{
-            alert("you win this game!! ")
-        }
-    }
-    playGame()
 </script>
 
 <head>
